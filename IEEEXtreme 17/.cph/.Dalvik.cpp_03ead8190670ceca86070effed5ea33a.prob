@@ -1,1 +1,0 @@
-{"name":"Local: Dalvik","url":"/stuff/codes/IEEEXtreme 17/Dalvik.cpp","tests":[{"id":1698499203111,"input":"3\n10 3 5\n987 654 321\n2023 1028 321","output":"3\n218\n218\n3418"},{"id":1698499228492,"input":"1\n10 3 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/IEEEXtreme 17/Dalvik.cpp","group":"local","local":true}

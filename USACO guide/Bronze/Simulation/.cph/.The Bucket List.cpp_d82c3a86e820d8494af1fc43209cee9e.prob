@@ -1,1 +1,0 @@
-{"name":"Local: The Bucket List","url":"/stuff/codes/USACO guide/Bronze/Simulation/The Bucket List.cpp","tests":[{"id":1700893059705,"input":"3\n4 10 1\n8 13 3\n2 6 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/USACO guide/Bronze/Simulation/The Bucket List.cpp","group":"local","local":true}

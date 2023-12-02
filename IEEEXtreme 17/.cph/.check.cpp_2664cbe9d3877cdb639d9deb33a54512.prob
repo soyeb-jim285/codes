@@ -1,1 +1,0 @@
-{"name":"Local: check","url":"/stuff/codes/IEEEXtreme 17/check.cpp","tests":[{"id":1698466215643,"input":"2012 2431 2496 2328 1258","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/IEEEXtreme 17/check.cpp","group":"local","local":true}

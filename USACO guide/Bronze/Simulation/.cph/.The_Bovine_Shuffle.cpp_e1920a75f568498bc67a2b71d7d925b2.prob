@@ -1,1 +1,0 @@
-{"name":"Local: The_Bovine_Shuffle","url":"/stuff/codes/USACO guide/Bronze/Simulation/The_Bovine_Shuffle.cpp","tests":[{"id":1700833327178,"input":"5\n1 3 4 5 2\n1234567 2222222 3333333 4444444 5555555","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/USACO guide/Bronze/Simulation/The_Bovine_Shuffle.cpp","group":"local","local":true}

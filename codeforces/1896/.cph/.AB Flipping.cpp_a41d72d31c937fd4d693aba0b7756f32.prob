@@ -1,0 +1,1 @@
+{"name":"Local: AB Flipping","url":"/stuff/codes/codeforces/1896/AB Flipping.cpp","tests":[{"id":1700924159872,"input":"3\n2\nAB\n4\nBBBA\n4\nAABB\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/codeforces/1896/AB Flipping.cpp","group":"local","local":true}

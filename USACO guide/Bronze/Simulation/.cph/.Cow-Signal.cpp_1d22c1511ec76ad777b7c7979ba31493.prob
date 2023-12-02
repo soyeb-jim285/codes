@@ -1,0 +1,1 @@
+{"name":"Local: Cow-Signal","url":"/stuff/codes/USACO guide/Bronze/Simulation/Cow-Signal.cpp","tests":[{"id":1700776210142,"input":"5 4 2\nXXX.\nX..X\nXXX.\nX..X\nXXX.","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/USACO guide/Bronze/Simulation/Cow-Signal.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Ones and Twos","url":"/stuff/codes/codeforces/1896/Ones and Twos.cpp","tests":[{"id":1700926397966,"input":"2\n5 5\n2 1 2 1 2\n1 5\n1 6\n1 7\n2 4 2\n1 7\n3 2\n2 2 2\n1 6\n1 5\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/codeforces/1896/Ones and Twos.cpp","group":"local","local":true}

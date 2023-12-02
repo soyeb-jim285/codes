@@ -1,0 +1,1 @@
+{"name":"Local: War Games","url":"/stuff/codes/IEEEXtreme 17/War Games.cpp","tests":[{"id":1698490274754,"input":"1\nA A\nA A A A","output":""},{"id":1698490878502,"input":"2\nK T 3\n2 J 5 J\nT A T\nT T J","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/stuff/codes/IEEEXtreme 17/War Games.cpp","group":"local","local":true}

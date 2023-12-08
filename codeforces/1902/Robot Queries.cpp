@@ -1,110 +1,112 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <string>
-#include <vector>
+#ifdef ONPC
+#define _GLIBCXX_DEBUG
+#endif
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-ll const N = 1e5 + 10, k = 25;
-vector<vector<ll>> mxt(k + 1, vector<ll>(N));
-vector<vector<ll>> rmxt(k + 1, vector<ll>(N));
-vector<vector<ll>> mnt(k + 1, vector<ll>(N));
-vector<vector<ll>> rmnt(k + 1, vector<ll>(N));
-ll p = 1e9 + 7;
-string s, rev;
-vector<ll> vc(N), rvc(N);
-void fn(string &str, vector<ll> &vce, ll n) {
+
+void fn(string &str, vector<pair<ll, ll>> &vct) {
   ll up = 0, right = 0;
+  ll n = vct.size();
   for (int i = 0; i < n; i++) {
     if (str[i] == 'U')
       up++;
-    if (str[i] == 'D')
+    else if (str[i] == 'D')
       up--;
-    if (str[i] == 'R')
+    else if (str[i] == 'R')
       right++;
-    if (str[i] == 'L')
+    else
       right--;
-    vce[i] = up * p + right;
+    vct[i].first = right;
+    vct[i].second = up;
   }
 }
-void spmx(vector<vector<ll>> &mxtt, vector<ll> &vcc) {
-  for (int i = 0; i < N; i++) {
-    mxtt[0][i] = vcc[i];
-  }
-  for (int i = 1; i <= k; i++)
-    for (int j = 0; j + (1 << i) <= N; j++)
-      mxtt[i][j] = max(mxtt[i - 1][j], mxtt[i - 1][j + (1 << (i - 1))]);
-}
-void spmn(vector<vector<ll>> &mntt, vector<ll> &vcc) {
-  for (int i = 0; i < N; i++) {
-    mntt[0][i] = vcc[i];
-  }
-  for (int i = 1; i <= k; i++)
-    for (int j = 0; j + (1 << i) <= N; j++)
-      mntt[i][j] = min(mntt[i - 1][j], mntt[i - 1][j + (1 << (i - 1))]);
-}
-ll mnn(ll l, ll r, vector<vector<ll>> &mxtt) {
-  ll i = log2(r - l + 1);
-  ll minimum = min(mxtt[i][l], mxtt[i][r - (1 << i) + 1]);
-  return minimum;
-}
-ll mxx(ll l, ll r, vector<vector<ll>> &mxtt) {
-  ll i = log2(r - l + 1);
-  ll minimum = max(mxtt[i][l], mxtt[i][r - (1 << i) + 1]);
-  return minimum;
-}
-bool an(ll l, ll r, ll ned, vector<vector<ll>> &mntt,
-        vector<vector<ll>> &mxtt) {
-  if (l > r)
-    return 0;
-  ll mxnum = mxx(l, r, mxtt);
-  ll minnum = mnn(l, r, mntt);
-  if (mxnum == ned || minnum == ned)
-    return 1;
-  if (ned > minnum && ned < mxnum) {
-    bool ans = an(l, r / 2, ned, mntt, mxtt);
-    ans |= an(r / 2 + 1, r, ned, mntt, mxtt);
-    return ans;
-  } else
-    return 0;
-}
+
 void solve() {
-  ll n, q;
-  cin >> n >> q;
-  cin >> rev;
-  s = rev;
-  reverse(rev.begin(), rev.end());
-  fn(s, vc, n);
-  fn(rev, rvc, n);
-  spmx(mxt, vc);
-  spmx(rmxt, rvc);
-  spmn(mnt, vc);
-  spmn(rmnt, rvc);
-  while (q--) {
-    ll x, y, fst, lst;
-    cin >> x >> y >> fst >> lst;
-    ll ned = x * p + y;
-    if (ned == 0)
+  ll n, k;
+  cin >> n >> k;
+  string s;
+  cin >> s;
+  vector<pair<ll, ll>> vc(n), rvc(n);
+  map<pair<ll, ll>, set<int>> mp, rmp;
+  fn(s, vc);
+  reverse(s.begin(), s.end());
+  fn(s, rvc);
+  for (int i = 0; i < n; i++) {
+    mp[vc[i]].insert(i);
+    rmp[rvc[i]].insert(i);
+  }
+  // for (auto ic : vc)
+  //   cout << ic.first << " " << ic.second << "\n";
+  // cout << "----------\n";
+  // for (auto ic : rvc)
+  //   cout << ic.first << " " << ic.second << "\n";
+  // cout << "----------\n";
+  // for (auto ic : mp) {
+  //   cout << "(" << ic.first.first << ", " << ic.first.second << ") =";
+  //   for (auto i = ic.second.begin(); i != ic.second.end(); i++)
+  //     cout << *i << ", ";
+  //   cout << "\n";
+  // }
+  // cout << "---------------\n";
+  // for (auto ic : rmp) {
+  //   cout << "(" << ic.first.first << ", " << ic.first.second << ") =";
+  //   for (auto i = ic.second.begin(); i != ic.second.end(); i++)
+  //     cout << *i << ", ";
+  //   cout << "\n";
+  // }
+
+  while (k--) {
+    ll x, y, l, r;
+    cin >> x >> y >> l >> r;
+    if (x == 0 && y == 0) {
       cout << "YES\n";
-    else if (an(0, fst - 2, ned, mnt, mxt) || an(lst, n - 1, ned, mnt, mxt))
-      cout << "YES\n";
-    else {
-      ned -= vc[lst];
-      if (ned == 0) {
-        cout << "YES\n";
-      } else if (an(fst, lst - 1, ned, rmnt, rmxt))
-        cout << "YES\n";
-      else
-        cout << "NO\n";
+      continue;
     }
+    l--, r--;
+    bool ck = 0;
+    if (mp[{x, y}].size()) {
+      auto ic = upper_bound(mp[{x, y}].begin(), mp[{x, y}].end(), l - 1);
+      ic--;
+      if (*ic >= 0 && *ic <= l - 1) {
+        ck = 1;
+      }
+      ic = upper_bound(mp[{x, y}].begin(), mp[{x, y}].end(), n - 1);
+      ic--;
+      if (*ic >= r + 1 && *ic < n)
+        ck = 1;
+    }
+    pair<ll, ll> fst, lst;
+    if (r == n - 1)
+      fst = {0, 0};
+    else
+      fst = rvc[n - 2 - r];
+    if (l == 0)
+      lst = {0, 0};
+    else
+      lst = vc[l - 1];
+    x += (fst.first - lst.first);
+    y += (fst.second - lst.second);
+    // cout << x << " " << y << "--find\n";
+    if (rmp[{x, y}].size()) {
+      auto ic = upper_bound(rmp[{x, y}].begin(), rmp[{x, y}].end(), n - 1 - l);
+      ic--;
+      if (*ic >= n - 1 - r && *ic <= n - 1 - l)
+        ck = 1;
+    }
+    if (ck)
+      cout << "YES\n";
+    else
+      cout << "NO\n";
   }
 }
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t = 1;
-  while (t--)
-    solve();
-  return 0;
+  solve();
+#ifdef ONPC
+  cerr << endl
+       << "finished in " << clock() * 1.0 / CLOCKS_PER_SEC << " sec" << endl;
+#endif
 }

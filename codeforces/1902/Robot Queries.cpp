@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <cstdio>
+#include <utility>
 #ifdef ONPC
 #define _GLIBCXX_DEBUG
 #endif
@@ -5,6 +8,10 @@
 using namespace std;
 typedef long long ll;
 typedef long double ld;
+
+ll const p = 1e9 + 7;
+
+ll hsh(ll x, ll y) { return x * p + y; }
 
 void fn(string &str, vector<pair<ll, ll>> &vct) {
   ll up = 0, right = 0;
@@ -29,14 +36,16 @@ void solve() {
   string s;
   cin >> s;
   vector<pair<ll, ll>> vc(n), rvc(n);
-  map<pair<ll, ll>, set<int>> mp, rmp;
+  vector<pair<ll, ll>> mp, rmp;
   fn(s, vc);
   reverse(s.begin(), s.end());
   fn(s, rvc);
   for (int i = 0; i < n; i++) {
-    mp[vc[i]].insert(i);
-    rmp[rvc[i]].insert(i);
+    mp.push_back({hsh(vc[i].first, vc[i].second), i});
+    rmp.push_back({hsh(rvc[i].first, rvc[i].second), i});
   }
+  sort(mp.begin(), mp.end());
+  sort(rmp.begin(), rmp.end());
   // for (auto ic : vc)
   //   cout << ic.first << " " << ic.second << "\n";
   // cout << "----------\n";
@@ -66,16 +75,20 @@ void solve() {
     }
     l--, r--;
     bool ck = 0;
-    if (mp[{x, y}].size()) {
-      auto ic = upper_bound(mp[{x, y}].begin(), mp[{x, y}].end(), l - 1);
+    auto ic = upper_bound(mp.begin(), mp.end(), make_pair(hsh(x, y), l - 1));
+    if (ic != mp.begin()) {
       ic--;
-      if (*ic >= 0 && *ic <= l - 1) {
+      if (ic->second >= 0 && ic->second <= l - 1 && ic->first == hsh(x, y))
         ck = 1;
-      }
-      ic = upper_bound(mp[{x, y}].begin(), mp[{x, y}].end(), n - 1);
+    }
+    // cout << ck << " 1\n";
+    ic = upper_bound(mp.begin(), mp.end(), make_pair(hsh(x, y), n - 1));
+    if (ic != mp.begin()) {
       ic--;
-      if (*ic >= r + 1 && *ic < n)
+      if (ic->second >= r + 1 && ic->second < n && ic->first == hsh(x, y))
         ck = 1;
+      // cout << ic->first << " " << ic->second << " " << hsh(x, y) << "\n";
+      // cout << ck << " 2\n";
     }
     pair<ll, ll> fst, lst;
     if (r == n - 1)
@@ -88,11 +101,12 @@ void solve() {
       lst = vc[l - 1];
     x += (fst.first - lst.first);
     y += (fst.second - lst.second);
-    // cout << x << " " << y << "--find\n";
-    if (rmp[{x, y}].size()) {
-      auto ic = upper_bound(rmp[{x, y}].begin(), rmp[{x, y}].end(), n - 1 - l);
+    // cout << x << " " << y << " " << ck << "--find\n";
+    ic = upper_bound(rmp.begin(), rmp.end(), make_pair(hsh(x, y), n - 1 - l));
+    if (ic != rmp.begin()) {
       ic--;
-      if (*ic >= n - 1 - r && *ic <= n - 1 - l)
+      if (ic->second >= n - 1 - r && ic->second <= n - 1 - l &&
+          ic->first == hsh(x, y))
         ck = 1;
     }
     if (ck)
@@ -104,6 +118,8 @@ void solve() {
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
+  // freopen("input.in", "r", stdin);
+  // freopen("output.out", "w", stdout);
   solve();
 #ifdef ONPC
   cerr << endl

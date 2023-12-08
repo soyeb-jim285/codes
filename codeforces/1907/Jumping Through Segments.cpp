@@ -13,7 +13,6 @@ bool fn(vector<pair<ll, ll>> &vc, ll k) {
         abs(hg - lw + vc[i].second - vc[i].first)) {
       hg = min(hg, vc[i].second);
       lw = max(lw, vc[i].first);
-      // cout << hg << " " << lw << "\n";
     } else
       return 0;
   }
@@ -33,10 +32,8 @@ void solve() {
       high = mid - 1;
     else
       low = mid + 1;
-    // cout << high << " " << low << "---\n";
   }
   for (ll i = max(0LL, low - 5); i < min((ll)1e12, low + 5); i++) {
-    // cout << i << "bla\n";
     if (fn(vc, i)) {
       cout << i << "\n";
       return;

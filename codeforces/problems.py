@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 from bs4 import BeautifulSoup as bsp
 import requests
 
@@ -7,12 +6,35 @@ loginurl = "https://codeforces.com/enter?back=%2F"
 main = "https://codeforces.com/"
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
-    # "Cookie": "astOnlineTimeUpdaterInvocation=1702067027507; lastOnlineTimeUpdaterInvocation=1702061253074; lastOnlineTimeUpdaterInvocation=1702064499412; cf_clearance=US2zn7CZo81KrRdf5MOuqirSfKpbwVQIvbnKVPTMfDo-1702067283-0-1-f4783d3d.7f8ed50e.a37962dd-0.2.1702067283; X-User-Sha1=954e14f57531bc507e75b7ddecefaf203542627b; 39ce7=CFosg4y0; 70a7c28f3de=1s8qfy6d2hh7n6y2jh; lastOnlineTimeUpdaterInvocation=1701960555150; JSESSIONID=B2EBD99555EFFE522A8DC67F0064CC7B; evercookie_png=1s8qfy6d2hh7n6y2jh; evercookie_etag=1s8qfy6d2hh7n6y2jh; evercookie_cache=1s8qfy6d2hh7n6y2jh; X-User=; nocturne.language=en",
 }
 payload = {"handleOrEmail": "mathproblems.solve@gmail.com", "password": "My91sKhan&56"}
 r = requests.post(loginurl, headers=headers, data=payload)
 
-contest_number = 1902
+common_file = """#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+
+void solve(){
+    
+}
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+"""
+
+main_notest = """   \tsolve();
+}"""
+main_test = """
+  ll t;
+  cin >> t;
+  while(t--){
+    solve();
+  }
+}"""
+
+print("contest_number: ")
+contest_number = input()
 
 contest_url = f"https://codeforces.com/contest/{contest_number}"
 html_txt = requests.get(
@@ -27,6 +49,8 @@ for tr in names[1:]:
     divs = tds[1].find_all("div")
     names = indx + ". " + divs[1].text.strip()
     print(names)
+    input_name = names
+    output_name = names
     problem_url = f"https://codeforces.com/contest/{contest_number}/problem/{indx}"
     problem_page = requests.get(
         problem_url, headers=headers, allow_redirects=False, timeout=5
@@ -34,11 +58,49 @@ for tr in names[1:]:
     page = bsp(problem_page, "html.parser")
     inpt = page.find_all(class_="input")
     outs = page.find_all(class_="output")
+    print(len(inpt))
+    print(len(outs))
+    contest_path = f"{contest_number}/"
+    if not os.path.exists(contest_path):
+        os.mkdir(contest_path)
+    with open(f"{contest_number}/{names}.cpp", "w") as file:
+        file.write(common_file)
+        if len(inpt) == 1:
+            file.write(main_test)
+        else:
+            file.write(main_notest)
+    count = 1
+    contest_folder = f"{contest_number}/{names}/"
+    if not os.path.exists(contest_folder):
+        os.mkdir(contest_folder)
+    input_path = f"{contest_number}/{names}/input/"
+    output_path = f"{contest_number}/{names}/output/"
+    answer_path = f"{contest_number}/{names}/answer/"
+    if not os.path.exists(input_path):
+        os.mkdir(input_path)
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+    if not os.path.exists(answer_path):
+        os.mkdir(answer_path)
     for inp in inpt:
-        input_div = inp.find_all("div")
-        for inpput in input_div[1:]:
-            print(inpput.text.strip())
-        # print(inp.text.strip())
-    # for inp in inpt:
-    #     inps = inp.find_all("test-example-line")
-    #     print(inps)
+        input_pre = inp.find("pre")
+        input_d = input_pre.find_all("div")
+        print("input " + str(count))
+        with open(f"{contest_number}/{names}/input/{count}.txt", "w") as file:
+            if len(input_d):
+                for input_div in input_d:
+                    file.write(input_div.text.strip())
+                    file.write("\n")
+                    print(input_div.text.strip())
+            else:
+                file.write(input_pre.text.strip())
+                print(input_pre.text.strip())
+            count += 1
+    count = 1
+    for out in outs:
+        with open(f"{contest_number}/{names}/answer/{count}.txt", "w") as file:
+            print("output " + str(count))
+            count += 1
+            output_div = out.find("pre")
+            file.write(output_div.text.strip())
+            print(output_div.text.strip())

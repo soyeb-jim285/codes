@@ -2,13 +2,9 @@ import os
 from bs4 import BeautifulSoup as bsp
 import requests
 
-loginurl = "https://codeforces.com/enter?back=%2F"
-main = "https://codeforces.com/"
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
 }
-payload = {"handleOrEmail": "mathproblems.solve@gmail.com", "password": "My91sKhan&56"}
-r = requests.post(loginurl, headers=headers, data=payload)
 
 common_file = """#include <bits/stdc++.h>
 using namespace std;
@@ -33,8 +29,7 @@ main_test = """
   }
 }"""
 
-print("contest_number: ")
-contest_number = input()
+contest_number = input("Input contest number: ")
 
 contest_url = f"https://codeforces.com/contest/{contest_number}"
 html_txt = requests.get(

@@ -5,30 +5,6 @@ import requests
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
 }
-
-common_file = """#include <bits/stdc++.h>
-using namespace std;
-typedef long long ll;
-typedef long double ld;
-
-void solve(){
-    
-}
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-"""
-
-main_notest = """   \tsolve();
-}"""
-main_test = """
-  ll t;
-  cin >> t;
-  while(t--){
-    solve();
-  }
-}"""
-
 contest_number = input("Input contest number: ")
 
 contest_url = f"https://codeforces.com/contest/{contest_number}"
@@ -59,11 +35,12 @@ for tr in names[1:]:
     if not os.path.exists(contest_path):
         os.mkdir(contest_path)
     with open(f"{contest_number}/{names}.cpp", "w") as file:
-        file.write(common_file)
         if len(inpt) == 1:
-            file.write(main_test)
+            with open("test.cpp", "r") as test_file:
+                file.write(test_file.read())
         else:
-            file.write(main_notest)
+            with open("notes.cpp", "r") as notes_file:
+                file.write(notes_file.read())
     count = 1
     contest_folder = f"{contest_number}/{names}/"
     if not os.path.exists(contest_folder):

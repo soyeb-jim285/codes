@@ -1,5 +1,4 @@
 import os
-from bs4 import BeautifulSoup as BS
 import requests
 
 Contest_name = input("Input contest name: ")

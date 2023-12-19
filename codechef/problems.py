@@ -1,52 +1,60 @@
 import os
 import requests
 
-Contest_name = input("Input contest name: ")
-contest_url = f"https://www.codechef.com/api/contests/{Contest_name}"
+class CodeChefContest:
+    def __init__(self, contest_name):
+        self.contest_name = contest_name
+        self.contest_url = f"https://www.codechef.com/api/contests/{contest_name}"
 
-try:
-    r = requests.get(contest_url)
-except requests.exceptions.RequestException as e:
-    raise SystemExit(e)
+    def get_json(self, url):
+        try:
+            r = requests.get(url)
+            return r.json()
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
 
-contest_data = r.json()
+    def create_directory(self, path):
+        if not os.path.exists(path):
+            os.makedirs(path)
 
-if not os.path.exists(Contest_name):
-    os.makedirs(Contest_name)
+    def process_contest(self):
+        contest_data = self.get_json(self.contest_url)
+        self.create_directory(self.contest_name)
 
-for problem_name in contest_data["problems"]:
-    problem_url = (
-        f"https://www.codechef.com/api/contests/{Contest_name}/problems/{problem_name}"
-    )
-    print(problem_name)
-    try:
-        pr = requests.get(problem_url)
-    except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
-    problem_data = pr.json()
-    with open(f"{Contest_name}/{problem_name}.cpp", "w") as f:
-        if len(problem_data["problemComponents"]["sampleTestCases"]) == 1:
-            with open("test.cpp", "r") as t:
-                f.write(t.read())
-        else:
-            with open("notest.cpp", "r") as t:
-                f.write(t.read())
-    problem_path = f"{Contest_name}/{problem_name}/"
-    input_path = f"{Contest_name}/{problem_name}/input/"
-    output_path = f"{Contest_name}/{problem_name}/output/"
-    answer_path = f"{Contest_name}/{problem_name}/answer/"
-    if not os.path.exists(problem_path):
-        os.makedirs(problem_path)
-    if not os.path.exists(input_path):
-        os.makedirs(input_path)
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-    if not os.path.exists(answer_path):
-        os.makedirs(answer_path)
-    for sample_test_case in problem_data["problemComponents"]["sampleTestCases"]:
-        print(sample_test_case["input"])
-        print(sample_test_case["output"])
-        with open(f"{input_path}{sample_test_case['id']}.txt", "w") as f:
-            f.write(sample_test_case["input"])
-        with open(f"{answer_path}{sample_test_case['id']}.txt", "w") as f:
-            f.write(sample_test_case["output"])
+        for problem_name in contest_data["problems"]:
+            self.process_problem(problem_name)
+
+    def process_problem(self, problem_name):
+        problem_url = f"https://www.codechef.com/api/contests/{self.contest_name}/problems/{problem_name}"
+        print(problem_name)
+        problem_data = self.get_json(problem_url)
+
+        with open(f"{self.contest_name}/{problem_name}.cpp", "w") as f:
+            if len(problem_data["problemComponents"]["sampleTestCases"]) == 1:
+                with open("test.cpp", "r") as t:
+                    f.write(t.read())
+            else:
+                with open("notest.cpp", "r") as t:
+                    f.write(t.read())
+
+        problem_path = f"{self.contest_name}/{problem_name}/"
+        input_path = f"{problem_path}input/"
+        output_path = f"{problem_path}output/"
+        answer_path = f"{problem_path}answer/"
+
+        self.create_directory(problem_path)
+        self.create_directory(input_path)
+        self.create_directory(output_path)
+        self.create_directory(answer_path)
+
+        for sample_test_case in problem_data["problemComponents"]["sampleTestCases"]:
+            print(sample_test_case["input"])
+            print(sample_test_case["output"])
+            with open(f"{input_path}{sample_test_case['id']}.txt", "w") as f:
+                f.write(sample_test_case["input"])
+            with open(f"{answer_path}{sample_test_case['id']}.txt", "w") as f:
+                f.write(sample_test_case["output"])
+
+contest_name = input("Input contest name: ")
+contest = CodeChefContest(contest_name)
+contest.process_contest()

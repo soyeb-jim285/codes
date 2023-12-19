@@ -6,18 +6,15 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 void solve() {
-  ll n;
-  cin >> n;
-  ll ct = 0;
-  while (n % 2 == 0) {
-    n /= 2;
-    ct++;
+  ll n, k;
+  cin >> n >> k;
+  for (int i = 0; i < k; i++) {
+    cout << i + 1 << " ";
   }
-  ct = 1 << ct;
-  if (n == 1)
-    cout << "-1\n";
-  else
-    cout << ct * (n - 1) / 2 << " " << ct << " " << ct << "\n";
+  for (int i = n - 1; i >= k; i--) {
+    cout << i + 1 << " ";
+  }
+  cout << "\n";
 }
 int main() {
   ios::sync_with_stdio(false);

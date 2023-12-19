@@ -2,8 +2,8 @@ import os
 from bs4 import BeautifulSoup as BS
 import requests
 
-# constest_name = input("Input contest name: ")
-contest_name = "arc169"
+constest_name = input("Input contest name: ")
+# contest_name = "arc169"
 headrs = {
     "Accept-Language": "en-US,en;q=0.5",
     "Accept-Encoding": "gzip, deflate, br",

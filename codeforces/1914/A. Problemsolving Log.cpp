@@ -8,16 +8,19 @@ typedef long double ld;
 void solve() {
   ll n;
   cin >> n;
-  ll ct = 0;
-  while (n % 2 == 0) {
-    n /= 2;
-    ct++;
+  string s;
+  cin >> s;
+  map<char, int> mp;
+  for (int i = 0; i < n; i++) {
+    mp[s[i]]++;
   }
-  ct = 1 << ct;
-  if (n == 1)
-    cout << "-1\n";
-  else
-    cout << ct * (n - 1) / 2 << " " << ct << " " << ct << "\n";
+  ll count = 0;
+  for (auto i : mp) {
+    if (i.first - 'A' + 1 <= i.second) {
+      count++;
+    }
+  }
+  cout << count << endl;
 }
 int main() {
   ios::sync_with_stdio(false);

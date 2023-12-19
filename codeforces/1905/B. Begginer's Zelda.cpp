@@ -8,16 +8,20 @@ typedef long double ld;
 void solve() {
   ll n;
   cin >> n;
-  ll ct = 0;
-  while (n % 2 == 0) {
-    n /= 2;
-    ct++;
+  vector<vector<ll>> grp(n + 1);
+  for (int i = 0; i < n - 1; i++) {
+    ll x, y;
+    cin >> x >> y;
+    grp[x].push_back(y);
+    grp[y].push_back(x);
   }
-  ct = 1 << ct;
-  if (n == 1)
-    cout << "-1\n";
-  else
-    cout << ct * (n - 1) / 2 << " " << ct << " " << ct << "\n";
+  ll ans = 0;
+  for (auto ic : grp) {
+    if (ic.size() == 1) {
+      ans++;
+    }
+  }
+  cout << ceil(1.0 * ans / 2) << "\n";
 }
 int main() {
   ios::sync_with_stdio(false);

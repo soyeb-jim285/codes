@@ -39,7 +39,7 @@ for tr in names[1:]:
             with open("test.cpp", "r") as test_file:
                 file.write(test_file.read())
         else:
-            with open("notes.cpp", "r") as notes_file:
+            with open("notest.cpp", "r") as notes_file:
                 file.write(notes_file.read())
     count = 1
     contest_folder = f"{contest_number}/{names}/"

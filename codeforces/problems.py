@@ -4,6 +4,7 @@ import requests
 
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+    "Cookie": "SESSIONID=EFA61D45CBC4A9E9D440B07F94D2C7EF; 39ce7=CFlGlyqs; _ga_K230KVN22K=GS1.1.1703773732.1.1.1703773822.0.0.0; _ga=GA1.2.1079810558.1703773732; _gid=GA1.2.1001151736.1703773732; evercookie_cache=wgbsx08emryk95lf9j; evercookie_etag=wgbsx08emryk95lf9j; cf_clearance=KlPEfllX1TyYZ8uuSMmYIUQMzQC9BIwFAfOGbZWqXF8-1703774306-0-2-25d9373f.85cc7e20.72d868df-160.2.1703773735; evercookie_png=wgbsx08emryk95lf9j; 70a7c28f3de=wgbsx08emryk95lf9j; X-User-Sha1=954e14f57531bc507e75b7ddecefaf203542627b; lastOnlineTimeUpdaterInvocation=1703773787752; cf_chl_2=de67e1b0a8fac15"
 }
 contest_number = input("Input contest number: ")
 
@@ -12,6 +13,7 @@ html_txt = requests.get(
     contest_url, headers=headers, allow_redirects=False, timeout=5
 ).text
 soup = bsp(html_txt, "lxml")
+print(soup.text.strip())
 problems = soup.find("table", class_="problems")
 names = problems.find_all("tr")
 for tr in names[1:]:

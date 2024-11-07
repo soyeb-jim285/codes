@@ -1,0 +1,58 @@
+<h1 style='text-align: center;'> C. Book Reading</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Polycarp is reading a book consisting of $n$ pages numbered from $1$ to $n$. Every time he finishes the page with the number divisible by $m$, he writes down the last digit of this page number. For example, if $n=15$ and $m=5$, pages divisible by $m$ are $5, 10, 15$. Their last digits are $5, 0, 5$ correspondingly, their sum is $10$.
+
+Your task is to calculate the sum of all digits Polycarp has written down.
+
+You have to answer $q$ independent queries.
+
+### Input
+
+The first line of the input contains one integer $q$ ($1 \le q \le 1000$) — the number of queries.
+
+The following $q$ lines contain queries, one per line. Each query is given as two integers $n$ and $m$ ($1 \le n, m \le 10^{16}$) — the number of pages in the book and required divisor, respectively.
+
+### Output
+
+For each query print the answer for it — the sum of digits written down by Polycarp.
+
+## Example
+
+### Input
+
+
+```text
+7
+1 1
+10 1
+100 3
+1024 14
+998244353 1337
+123 144
+1234312817382646 13
+```
+### Output
+
+
+```text
+1
+45
+153
+294
+3359835
+0
+427262129093995
+```
+
+
+#### Tags 
+
+#1200 #NOT OK #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_582_(Div._3).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

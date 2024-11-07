@@ -1,0 +1,81 @@
+<h1 style='text-align: center;'> D. Diverse Garland</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+You have a garland consisting of $n$ lamps. Each lamp is colored red, green or blue. The color of the $i$-th lamp is $s_i$ ('R', 'G' and 'B' — colors of lamps in the garland).
+
+You have to recolor some lamps in this garland (recoloring a lamp means changing its initial color to another) in such a way that the obtained garland is diverse.
+
+A garland is called diverse if any two adjacent (consecutive) lamps (i. e. such lamps that the distance between their positions is $1$) have distinct colors.
+
+In other words, if the obtained garland is $t$ then for each $i$ from $1$ to $n-1$ the condition $t_i \ne t_{i + 1}$ should be satisfied.
+
+Among all ways to recolor the initial garland to make it diverse you have to choose one with the minimum number of recolored lamps. If there are multiple optimal solutions, print any of them.
+
+##### Input
+
+The first line of the input contains one integer $n$ ($1 \le n \le 2 \cdot 10^5$) — the number of lamps.
+
+The second line of the input contains the string $s$ consisting of $n$ characters 'R', 'G' and 'B' — colors of lamps in the garland.
+
+##### Output
+
+In the first line of the output print one integer $r$ — the minimum number of recolors needed to obtain a diverse garland from the given one.
+
+In the second line of the output print one string $t$ of length $n$ — a diverse garland obtained from the initial one with minimum number of recolors. If there are multiple optimal solutions, print any of them.
+
+## Examples
+
+##### Input
+
+
+```text
+9
+RBGRRBRGG
+```
+##### Output
+
+
+```text
+2
+RBGRGBRGR
+```
+##### Input
+
+
+```text
+8
+BBBGBRRR
+```
+##### Output
+
+
+```text
+2
+BRBGBRGR
+```
+##### Input
+
+
+```text
+13
+BBRRRRGGGGGRR
+```
+##### Output
+
+
+```text
+6
+BGRBRBGBGBGRG
+```
+
+
+#### Tags 
+
+#1400 #NOT OK #constructive_algorithms #dp #greedy 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_535_(Div._3).md)
+- [Announcement (en)](../blogs/Announcement_(en).md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

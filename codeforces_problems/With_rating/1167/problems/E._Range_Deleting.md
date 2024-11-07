@@ -1,0 +1,68 @@
+<h1 style='text-align: center;'> E. Range Deleting</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+You are given an array consisting of $n$ integers $a_1, a_2, \dots , a_n$ and an integer $x$. It is guaranteed that for every $i$, $1 \le a_i \le x$.
+
+Let's denote a function $f(l, r)$ which erases all values such that $l \le a_i \le r$ from the array $a$ and returns the resulting array. For example, if $a = [4, 1, 1, 4, 5, 2, 4, 3]$, then $f(2, 4) = [1, 1, 5]$.
+
+Your task is to calculate the number of pairs $(l, r)$ such that $1 \le l \le r \le x$ and $f(l, r)$ is sorted in non-descending order. 
+## Note
+
+ that the empty array is also considered sorted.
+
+#### Input
+
+The first line contains two integers $n$ and $x$ ($1 \le n, x \le 10^6$) — the length of array $a$ and the upper limit for its elements, respectively.
+
+The second line contains $n$ integers $a_1, a_2, \dots a_n$ ($1 \le a_i \le x$).
+
+#### Output
+
+Print the number of pairs $1 \le l \le r \le x$ such that $f(l, r)$ is sorted in non-descending order.
+
+## Examples
+
+#### Input
+
+
+```text
+3 3
+2 3 1
+```
+#### Output
+
+
+```text
+4
+```
+#### Input
+
+
+```text
+7 4
+1 3 1 2 2 4 3
+```
+#### Output
+
+
+```text
+6
+```
+## Note
+
+In the first test case correct pairs are $(1, 1)$, $(1, 2)$, $(1, 3)$ and $(2, 3)$.
+
+In the second test case correct pairs are $(1, 3)$, $(1, 4)$, $(2, 3)$, $(2, 4)$, $(3, 3)$ and $(3, 4)$.
+
+
+
+#### Tags 
+
+#2100 #NOT OK #binary_search #combinatorics #data_structures #two_pointers 
+
+## Blogs
+- [All Contest Problems](../Educational_Codeforces_Round_65_(Rated_for_Div._2).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

@@ -1,0 +1,86 @@
+<h1 style='text-align: center;'> C. Ehab and Prefix MEXs</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Given an array $a$ of length $n$, find another array, $b$, of length $n$ such that:
+
+* for each $i$ $(1 \le i \le n)$ $MEX(\{b_1$, $b_2$, $\ldots$, $b_i\})=a_i$.
+
+The $MEX$ of a set of integers is the smallest non-negative integer that doesn't belong to this set.
+
+If such array doesn't exist, determine this.
+
+## Input
+
+The first line contains an integer $n$ ($1 \le n \le 10^5$) — the length of the array $a$.
+
+The second line contains $n$ integers $a_1$, $a_2$, $\ldots$, $a_n$ ($0 \le a_i \le i$) — the elements of the array $a$. It's guaranteed that $a_i \le a_{i+1}$ for $1\le i < n$. 
+
+## Output
+
+If there's no such array, print a single line containing $-1$.
+
+Otherwise, print a single line containing $n$ integers $b_1$, $b_2$, $\ldots$, $b_n$ ($0 \le b_i \le 10^6$)
+
+If there are multiple answers, print any.
+
+## Examples
+
+## Input
+
+
+```
+
+3
+1 2 3
+
+```
+## Output
+
+
+```
+
+0 1 2 
+```
+## Input
+
+
+```
+
+4
+0 0 0 2
+
+```
+## Output
+
+
+```
+
+1 3 4 0 
+```
+## Input
+
+
+```
+
+3
+1 1 3
+
+```
+## Output
+
+
+```
+
+0 2 1 
+```
+## Note
+
+In the second test case, other answers like $[1,1,1,0]$, for example, are valid.
+
+
+
+#### tags 
+
+#1600 #brute_force #constructive_algorithms #greedy 

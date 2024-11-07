@@ -1,0 +1,67 @@
+<h1 style='text-align: center;'> F. Kate and imperfection</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Kate has a set $S$ of $n$ integers $\{1, \dots, n\} $. 
+
+She thinks that imperfection of a subset $M \subseteq S$ is equal to the maximum of $gcd(a, b)$ over all pairs $(a, b)$ such that both $a$ and $b$ are in $M$ and $a \neq b$. 
+
+Kate is a very neat girl and for each $k \in \{2, \dots, n\}$ she wants to find a subset that has the smallest imperfection among all subsets in $S$ of size $k$. There can be more than one subset with the smallest imperfection and the same size, but you don't need to worry about it. Kate wants to find all the subsets herself, but she needs your help to find the smallest possible imperfection for each size $k$, will name it $I_k$. 
+
+Please, help Kate to find $I_2$, $I_3$, ..., $I_n$.
+
+#### Input
+
+The first and only line in the input consists of only one integer $n$ ($2\le n \le 5 \cdot 10^5$)  — the size of the given set $S$.
+
+#### Output
+
+#### Output
+
+ contains only one line that includes $n - 1$ integers: $I_2$, $I_3$, ..., $I_n$.
+
+## Examples
+
+#### Input
+
+
+```text
+2
+```
+#### Output
+
+
+```text
+1 
+```
+#### Input
+
+```text
+
+3
+
+```
+#### Output
+
+
+```text
+
+1 1 
+```
+## Note
+
+First sample: answer is 1, because $gcd(1, 2) = 1$.
+
+Second sample: there are subsets of $S$ with sizes $2, 3$ with imperfection equal to 1. For example, $\{2,3\}$ and $\{1, 2, 3\}$.
+
+
+
+#### Tags 
+
+#2200 #NOT OK #greedy #implementation #math #number_theory #sortings #two_pointers 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_632_(Div._2).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

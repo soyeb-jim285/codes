@@ -1,0 +1,63 @@
+<h1 style='text-align: center;'> E. Special Segments of Permutation</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 512 megabytes</h5>
+
+You are given a permutation $p$ of $n$ integers $1$, $2$, ..., $n$ (a permutation is an array where each element from $1$ to $n$ occurs exactly once).
+
+Let's call some subsegment $p[l, r]$ of this permutation special if $p_l + p_r = \max \limits_{i = l}^{r} p_i$. Please calculate the number of special subsegments.
+
+#### Input
+
+The first line contains one integer $n$ ($3 \le n \le 2 \cdot 10^5$).
+
+The second line contains $n$ integers $p_1$, $p_2$, ..., $p_n$ ($1 \le p_i \le n$). All these integers are pairwise distinct.
+
+#### Output
+
+Print the number of special subsegments of the given permutation.
+
+## Examples
+
+#### Input
+
+
+```text
+5
+3 4 1 5 2
+```
+#### Output
+
+
+```text
+2
+```
+#### Input
+
+
+```text
+3
+1 3 2
+```
+#### Output
+
+
+```text
+1
+```
+## Note
+
+Special subsegments in the first example are $[1, 5]$ and $[1, 3]$.
+
+The only special subsegment in the second example is $[1, 3]$.
+
+
+
+#### Tags 
+
+#2200 #NOT OK #data_structures #divide_and_conquer #dsu #two_pointers 
+
+## Blogs
+- [All Contest Problems](../Educational_Codeforces_Round_64_(Rated_for_Div._2).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

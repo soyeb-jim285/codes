@@ -1,0 +1,57 @@
+<h1 style='text-align: center;'> C. Tiles</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Bob is decorating his kitchen, more precisely, the floor. He has found a prime candidate for the tiles he will use. They come in a simple form factor — a square tile that is diagonally split into white and black part as depicted in the figure below.
+
+ ![](images/9abf434c6b5162230df110139bfdc3ed35f24e1e.png) The dimension of this tile is perfect for this kitchen, as he will need exactly $w \times h$ tiles without any scraps. That is, the width of the kitchen is $w$ tiles, and the height is $h$ tiles. As each tile can be rotated in one of four ways, he still needs to decide on how exactly he will tile the floor. There is a single aesthetic criterion that he wants to fulfil: two adjacent tiles must not share a colour on the edge — i.e. one of the tiles must have a white colour on the shared border, and the second one must be black.
+
+ ![](images/066d766eadf99ef79fd64c88534b915bb49ea754.png) The picture on the left shows one valid tiling of a $3 \times 2$ kitchen. The picture on the right shows an invalid arrangement, as the bottom two tiles touch with their white parts. Find the number of possible tilings. As this number may be large, output its remainder when divided by $998244353$ (a prime number). 
+
+#### Input
+
+The only line contains two space separated integers $w$, $h$ ($1 \leq w,h \leq 1\,000$) — the width and height of the kitchen, measured in tiles.
+
+#### Output
+
+#### Output
+
+ a single integer $n$ — the remainder of the number of tilings when divided by $998244353$.
+
+## Examples
+
+#### Input
+
+
+```text
+2 2
+```
+#### Output
+
+
+```text
+16
+```
+#### Input
+
+
+```text
+2 4
+```
+#### Output
+
+
+```text
+64
+```
+
+
+#### Tags 
+
+#1300 #NOT OK #combinatorics #greedy #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Global_Round_4.md)
+- [Announcement](../blogs/Announcement.md)
+- [E (en)](../blogs/E_(en).md)

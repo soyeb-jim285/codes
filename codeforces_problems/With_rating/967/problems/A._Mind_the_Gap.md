@@ -1,0 +1,111 @@
+<h1 style='text-align: center;'> A. Mind the Gap</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+These days Arkady works as an air traffic controller at a large airport. He controls a runway which is usually used for landings only. Thus, he has a schedule of planes that are landing in the nearest future, each landing lasts $1$ minute.
+
+He was asked to insert one takeoff in the schedule. The takeoff takes $1$ minute itself, but for safety reasons there should be a time space between the takeoff and any landing of at least $s$ minutes from both sides.
+
+Find the earliest time when Arkady can insert the takeoff.
+
+##### Input
+
+The first line of input contains two integers $n$ and $s$ ($1 \le n \le 100$, $1 \le s \le 60$) — the number of landings on the schedule and the minimum allowed time (in minutes) between a landing and a takeoff.
+
+Each of next $n$ lines contains two integers $h$ and $m$ ($0 \le h \le 23$, $0 \le m \le 59$) — the time, in hours and minutes, when a plane will land, starting from current moment (i. e. the current time is $0$ $0$). These times are given in increasing order.
+
+##### Output
+
+Print two integers $h$ and $m$ — the hour and the minute from the current moment of the earliest time Arkady can insert the takeoff.
+
+## Examples
+
+##### Input
+
+
+```text
+6 60  
+0 0  
+1 20  
+3 21  
+5 0  
+19 30  
+23 40  
+
+```
+##### Output
+
+
+```text
+6 1  
+
+```
+##### Input
+
+
+```text
+16 50  
+0 30  
+1 20  
+3 0  
+4 30  
+6 10  
+7 50  
+9 30  
+11 10  
+12 50  
+14 30  
+16 10  
+17 50  
+19 30  
+21 10  
+22 50  
+23 59  
+
+```
+##### Output
+
+
+```text
+24 50  
+
+```
+##### Input
+
+
+```text
+3 17  
+0 30  
+1 0  
+12 0  
+
+```
+##### Output
+
+
+```text
+0 0  
+
+```
+## Note
+
+In the first example note that there is not enough time between 1:20 and 3:21, because each landing and the takeoff take one minute.
+
+In the second example there is no gaps in the schedule, so Arkady can only add takeoff after all landings. 
+## Note
+
+ that it is possible that one should wait more than $24$ hours to insert the takeoff.
+
+In the third example Arkady can insert the takeoff even between the first landing.
+
+
+
+#### Tags 
+
+#1100 #NOT OK #implementation 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_477_(rated,_Div._2,_based_on_VK_Cup_2018_Round_3).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

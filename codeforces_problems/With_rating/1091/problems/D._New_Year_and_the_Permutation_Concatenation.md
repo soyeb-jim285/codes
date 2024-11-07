@@ -1,0 +1,77 @@
+<h1 style='text-align: center;'> D. New Year and the Permutation Concatenation</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Let $n$ be an integer. Consider all permutations on integers $1$ to $n$ in lexicographic order, and concatenate them into one big sequence $p$. For example, if $n = 3$, then $p = [1, 2, 3, 1, 3, 2, 2, 1, 3, 2, 3, 1, 3, 1, 2, 3, 2, 1]$. The length of this sequence will be $n \cdot n!$.
+
+Let $1 \leq i \leq j \leq n \cdot n!$ be a pair of indices. We call the sequence $(p_i, p_{i+1}, \dots, p_{j-1}, p_j)$ a subarray of $p$. Its length is defined as the number of its elements, i.e., $j - i + 1$. Its sum is the sum of all its elements, i.e., $\sum_{k=i}^j p_k$. 
+
+You are given $n$. Find the number of subarrays of $p$ of length $n$ having sum $\frac{n(n+1)}{2}$. Since this number may be large, output it modulo $998244353$ (a prime number). 
+
+##### Input
+
+The only line contains one integer $n$ ($1 \leq n \leq 10^6$), as described in the problem statement.
+
+##### Output
+
+##### Output
+
+ a single integer — the number of subarrays of length $n$ having sum $\frac{n(n+1)}{2}$, modulo $998244353$.
+
+## Examples
+
+##### Input
+
+
+```text
+3
+```
+##### Output
+
+
+```text
+9
+```
+##### Input
+
+
+```text
+4
+```
+##### Output
+
+
+```text
+56
+```
+##### Input
+
+
+```text
+10
+```
+##### Output
+
+
+```text
+30052700
+```
+## Note
+
+In the first sample, there are $16$ subarrays of length $3$. In order of appearance, they are:
+
+$[1, 2, 3]$, $[2, 3, 1]$, $[3, 1, 3]$, $[1, 3, 2]$, $[3, 2, 2]$, $[2, 2, 1]$, $[2, 1, 3]$, $[1, 3, 2]$, $[3, 2, 3]$, $[2, 3, 1]$, $[3, 1, 3]$, $[1, 3, 1]$, $[3, 1, 2]$, $[1, 2, 3]$, $[2, 3, 2]$, $[3, 2, 1]$. 
+
+Their sums are $6$, $6$, $7$, $6$, $7$, $5$, $6$, $6$, $8$, $6$, $7$, $5$, $6$, $6$, $7$, $6$. As $\frac{n(n+1)}{2} = 6$, the answer is $9$.
+
+
+
+#### Tags 
+
+#1700 #NOT OK #combinatorics #dp #math 
+
+## Blogs
+- [All Contest Problems](../Good_Bye_2018.md)
+- [Good Bye 2018 (en)](../blogs/Good_Bye_2018_(en).md)
+- [Editorial (en)](../blogs/Editorial_(en).md)

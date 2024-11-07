@@ -1,0 +1,67 @@
+<h1 style='text-align: center;'> A. Alex and broken contest</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+One day Alex was creating a contest about his friends, but accidentally deleted it. Fortunately, all the problems were saved, but now he needs to find them among other problems.
+
+But there are too many problems, to do it manually. Alex asks you to write a program, which will determine if a problem is from this contest by its name.
+
+It is known, that problem is from this contest if and only if its name contains one of Alex's friends' name exactly once. His friends' names are "Danil", "Olya", "Slava", "Ann" and "Nikita".
+
+Names are case sensitive.
+
+## Input
+
+The only line contains string from lowercase and uppercase letters and "_" symbols of length, not more than 100 — the name of the problem.
+
+## Output
+
+Print "YES", if problem is from this contest, and "NO" otherwise.
+
+## Examples
+
+## Input
+
+
+```
+Alex_and_broken_contest  
+
+```
+## Output
+
+
+```
+NO
+```
+## Input
+
+
+```
+NikitaAndString  
+
+```
+## Output
+
+
+```
+YES
+```
+## Input
+
+
+```
+Danil_and_Olya  
+
+```
+## Output
+
+
+```
+NO
+```
+
+
+#### tags 
+
+#1100 #implementation #strings 

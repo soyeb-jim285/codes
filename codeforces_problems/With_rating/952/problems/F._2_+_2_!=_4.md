@@ -1,0 +1,69 @@
+<h1 style='text-align: center;'> F. 2 + 2 != 4</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+One very experienced problem writer decided to prepare a problem for April Fools Day contest. The task was very simple - given an arithmetic expression, return the result of evaluating this expression. However, looks like there is a bug in the reference solution...
+
+##### Input
+
+The only line of input data contains the arithmetic expression. The expression will contain between 2 and 10 operands, separated with arithmetic signs plus and/or minus. Each operand will be an integer between 0 and 255, inclusive.
+
+##### Output
+
+Reproduce the output of the reference solution, including the bug.
+
+## Examples
+
+##### Input
+
+
+```text
+8-7+6-5+4-3+2-1-0  
+
+```
+##### Output
+
+
+```text
+4  
+
+```
+##### Input
+
+
+```text
+2+2  
+
+```
+##### Output
+
+
+```text
+-46  
+
+```
+##### Input
+
+
+```text
+112-37  
+
+```
+##### Output
+
+
+```text
+375  
+
+```
+
+
+#### Tags 
+
+#2400 #NOT OK 
+
+## Blogs
+- [All Contest Problems](../April_Fools_Contest_2018.md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

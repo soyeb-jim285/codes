@@ -1,0 +1,66 @@
+<h1 style='text-align: center;'> A. Magic Numbers</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+A magic number is a number formed by concatenation of numbers 1, 14 and 144. We can use each of these numbers any number of times. Therefore 14144, 141414 and 1411 are magic numbers but 1444, 514 and 414 are not.
+
+You're given a number. Determine if it is a magic number or not.
+
+## Input
+
+The first line of input contains an integer *n*, (1 ≤ *n* ≤ 109). This number doesn't contain leading zeros.
+
+## Output
+
+Print "YES" if *n* is a magic number or print "NO" if it's not.
+
+## Examples
+
+## Input
+
+
+```
+114114  
+
+```
+## Output
+
+
+```
+YES  
+
+```
+## Input
+
+
+```
+1111  
+
+```
+## Output
+
+
+```
+YES  
+
+```
+## Input
+
+
+```
+441231  
+
+```
+## Output
+
+
+```
+NO  
+
+```
+
+
+#### tags 
+
+#900 #brute_force #greedy 

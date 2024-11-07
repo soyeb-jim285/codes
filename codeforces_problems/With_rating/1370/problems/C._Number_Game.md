@@ -1,0 +1,75 @@
+<h1 style='text-align: center;'> C. Number Game</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Ashishgup and FastestFinger play a game. 
+
+They start with a number $n$ and play in turns. In each turn, a player can make any one of the following moves:
+
+* Divide $n$ by any of its odd divisors greater than $1$.
+* Subtract $1$ from $n$ if $n$ is greater than $1$.
+
+Divisors of a number include the number itself.
+
+The player who is unable to make a move loses the game.
+
+Ashishgup moves first. Determine the winner of the game if both of them play optimally.
+
+### Input
+
+The first line contains a single integer $t$ ($1 \leq t \leq 100$)  — the number of test cases. The description of the test cases follows.
+
+The only line of each test case contains a single integer  — $n$ ($1 \leq n \leq 10^9$).
+
+### Output
+
+For each test case, print "Ashishgup" if he wins, and "FastestFinger" otherwise (without quotes).
+
+## Example
+
+### Input
+
+
+```text
+7
+1
+2
+3
+4
+5
+6
+12
+```
+### Output
+
+
+```text
+FastestFinger
+Ashishgup
+Ashishgup
+FastestFinger
+Ashishgup
+FastestFinger
+Ashishgup
+```
+## Note
+
+In the first test case, $n = 1$, Ashishgup cannot make a move. He loses.
+
+In the second test case, $n = 2$, Ashishgup subtracts $1$ on the first move. Now $n = 1$, FastestFinger cannot make a move, so he loses.
+
+In the third test case, $n = 3$, Ashishgup divides by $3$ on the first move. Now $n = 1$, FastestFinger cannot make a move, so he loses.
+
+In the last test case, $n = 12$, Ashishgup divides it by $3$. Now $n = 4$, FastestFinger is forced to subtract $1$, and Ashishgup gets $3$, so he wins by dividing it by $3$.
+
+
+
+#### Tags 
+
+#1400 #NOT OK #games #math #number_theory 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_651_(Div._2).md)
+- [Announcement (en)](../blogs/Announcement_(en).md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

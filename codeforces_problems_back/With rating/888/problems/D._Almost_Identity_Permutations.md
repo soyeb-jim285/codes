@@ -1,0 +1,82 @@
+<h1 style='text-align: center;'> D. Almost Identity Permutations</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+A permutation *p* of size *n* is an array such that every integer from 1 to *n* occurs exactly once in this array.
+
+Let's call a permutation an almost identity permutation iff there exist at least *n* - *k* indices *i* (1 ≤ *i* ≤ *n*) such that *p**i* = *i*.
+
+Your task is to count the number of almost identity permutations for given numbers *n* and *k*.
+
+## Input
+
+The first line contains two integers *n* and *k* (4 ≤ *n* ≤ 1000, 1 ≤ *k* ≤ 4).
+
+## Output
+
+Print the number of almost identity permutations for given *n* and *k*.
+
+## Examples
+
+## Input
+
+
+```
+4 1  
+
+```
+## Output
+
+
+```
+1  
+
+```
+## Input
+
+
+```
+4 2  
+
+```
+## Output
+
+
+```
+7  
+
+```
+## Input
+
+
+```
+5 3  
+
+```
+## Output
+
+
+```
+31  
+
+```
+## Input
+
+
+```
+5 4  
+
+```
+## Output
+
+
+```
+76  
+
+```
+
+
+#### tags 
+
+#1600 #combinatorics #dp #math 

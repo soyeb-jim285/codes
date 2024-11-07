@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# The script takes a cpp file and compile it, Then run against some test files and compare the output with the expected output
+
+cppFile="$1"
+input_directory="${cppFile%.*}/input/"
+output_directory="${cppFile%.*}/output/"
+expected_output_directory="${cppFile%.*}/answer/"
+
+if [ ! -f "$cppFile" ]; then
+    notify-send -t 5000 -u critical "File $cppFile does not exist"
+    exit 1
+fi
+
+if [ ! -d "$input_directory" ]; then
+    notify-send -t 5000 -u critical "Directory $input_directory does not exist"
+    exit 1
+fi
+
+if [ ! -d "$output_directory" ]; then
+    notify-send -t 5000 -u critical "Directory $output_directory does not exist"
+    exit 1
+fi
+
+if [ ! -d "$expected_output_directory" ]; then
+    notify-send -t 5000 -u critical "Directory $expected_output_directory does not exist"
+    exit 1
+fi
+
+g++ -Wall -fsanitize=address -Wextra -Wpedantic -O2 -std=c++17 -o a.out "$cppFile"
+
+if [ $? -ne 0 ]; then
+    notify-send -t 5000 -u critical "Compilation failed"
+    exit 1
+else
+    for file in "$input_directory"/*.txt; do
+      filename=$(basename "$file")
+      filename="${filename%.*}"
+      start=`date +%s.%N`
+      ./a.out < "$file" > "$output_directory/$filename.txt"
+      end=`date +%s.%N`
+      runtime=$( echo "$end - $start" | bc -l )
+      notify-send -t 5000 "for $filename: $runtime s"
+      diff -i -w -B "$output_directory/$filename.txt" "$expected_output_directory/$filename.txt" > /dev/null
+      if [ $? -eq 0 ]; then
+          notify-send -t 5000 "Test $filename passed"
+      else
+          # echo "Test $filename failed"
+          sdiff -l -i -W -B "$output_directory/$filename.txt" "$expected_output_directory/$filename.txt" | cat -n | grep -v -e '($' > diff.txt
+          notify-send -t 5000 -u critical "Test $filename failed"
+          notify-send -t 5500 "$(cat diff.txt)"
+          # rm diff.txt
+      fi
+    done
+fi

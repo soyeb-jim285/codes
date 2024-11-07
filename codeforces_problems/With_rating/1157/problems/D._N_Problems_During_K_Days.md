@@ -1,0 +1,89 @@
+<h1 style='text-align: center;'> D. N Problems During K Days</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Polycarp has to solve exactly $n$ problems to improve his programming skill before an important programming competition. But this competition will be held very soon, most precisely, it will start in $k$ days. It means that Polycarp has exactly $k$ days for training!
+
+Polycarp doesn't want to procrastinate, so he wants to solve at least one problem during each of $k$ days. He also doesn't want to overwork, so if he solves $x$ problems during some day, he should solve no more than $2x$ problems during the next day. And, at last, he wants to improve his skill, so if he solves $x$ problems during some day, he should solve at least $x+1$ problem during the next day.
+
+More formally: let $[a_1, a_2, \dots, a_k]$ be the array of numbers of problems solved by Polycarp. The $i$-th element of this array is the number of problems Polycarp solves during the $i$-th day of his training. Then the following conditions must be satisfied: 
+
+* sum of all $a_i$ for $i$ from $1$ to $k$ should be $n$;
+* $a_i$ should be greater than zero for each $i$ from $1$ to $k$;
+* the condition $a_i < a_{i + 1} \le 2 a_i$ should be satisfied for each $i$ from $1$ to $k-1$.
+
+Your problem is to find any array $a$ of length $k$ satisfying the conditions above or say that it is impossible to do it.
+
+###### Input
+
+The first line of the input contains two integers $n$ and $k$ ($1 \le n \le 10^9, 1 \le k \le 10^5$) — the number of problems Polycarp wants to solve and the number of days Polycarp wants to train.
+
+###### Output
+
+If it is impossible to find any array $a$ of length $k$ satisfying Polycarp's rules of training, print "NO" in the first line.
+
+Otherwise print "YES" in the first line, then print $k$ integers $a_1, a_2, \dots, a_k$ in the second line, where $a_i$ should be the number of problems Polycarp should solve during the $i$-th day. If there are multiple answers, you can print any.
+
+## Examples
+
+###### Input
+
+
+```text
+26 6
+```
+###### Output
+
+
+```text
+YES
+1 2 4 5 6 8 
+```
+###### Input
+
+
+```text
+8 3
+```
+###### Output
+
+
+```text
+NO
+```
+###### Input
+
+
+```text
+1 1
+```
+###### Output
+
+
+```text
+YES
+1 
+```
+###### Input
+
+
+```text
+9 4
+```
+###### Output
+
+
+```text
+NO
+```
+
+
+#### Tags 
+
+#1900 #NOT OK #constructive_algorithms #greedy #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_555_(Div._3).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

@@ -1,0 +1,114 @@
+<h1 style='text-align: center;'> C. Postcard</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Andrey received a postcard from Irina. It contained only the words "Hello, Andrey!", and a strange string consisting of lowercase Latin letters, snowflakes and candy canes. Andrey thought that this string is an encrypted message, and decided to decrypt it.
+
+Andrey noticed that snowflakes and candy canes always stand after the letters, so he supposed that the message was encrypted as follows. Candy cane means that the letter before it can be removed, or can be left. A snowflake means that the letter before it can be removed, left, or repeated several times.
+
+For example, consider the following string: 
+
+ ![](images/2d9a7e9c013dce103f4972be609779c93fd7cc14.png) This string can encode the message «happynewyear». For this, candy canes and snowflakes should be used as follows: 
+
+* candy cane 1: remove the letter w,
+* snowflake 1: repeat the letter p twice,
+* candy cane 2: leave the letter n,
+* snowflake 2: remove the letter w,
+* snowflake 3: leave the letter e.
+
+ ![](images/8f88019391dc40b2722534e5ba3b7c728f714660.png) Please note that the same string can encode different messages. For example, the string above can encode «hayewyar», «happpppynewwwwwyear», and other messages.
+
+Andrey knows that messages from Irina usually have a length of $k$ letters. Help him to find out if a given string can encode a message of $k$ letters, and if so, give an example of such a message.
+
+####### Input
+
+The first line contains the string received in the postcard. The string consists only of lowercase Latin letters, as well as the characters «*» and «?», meaning snowflake and candy cone, respectively. These characters can only appear immediately after the letter. The length of the string does not exceed $200$.
+
+The second line contains an integer number $k$ ($1 \leq k \leq 200$), the required message length.
+
+####### Output
+
+Print any message of length $k$ that the given string can encode, or «Impossible» if such a message does not exist.
+
+## Examples
+
+####### Input
+
+
+```text
+hw?ap*yn?eww*ye*ar
+12
+```
+####### Output
+
+
+```text
+happynewyear
+```
+####### Input
+
+
+```text
+ab?a
+2
+```
+####### Output
+
+
+```text
+aa
+```
+####### Input
+
+```text
+
+ab?a
+3
+
+```
+####### Output
+
+
+```text
+aba
+```
+####### Input
+
+```text
+
+ababb
+5
+
+```
+####### Output
+
+
+```text
+ababb
+```
+####### Input
+
+```text
+
+ab?a
+1
+
+```
+####### Output
+
+
+```text
+
+Impossible
+```
+
+
+#### Tags 
+
+#1200 #NOT OK #constructive_algorithms #implementation 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_530_(Div._2).md)
+- [A (en)](../blogs/A_(en).md)
+- [E (en)](../blogs/E_(en).md)

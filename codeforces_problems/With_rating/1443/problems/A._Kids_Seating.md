@@ -1,0 +1,58 @@
+<h1 style='text-align: center;'> A. Kids Seating</h1>
+
+<h5 style='text-align: center;'>time limit per test: 2 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Today the kindergarten has a new group of $n$ kids who need to be seated at the dinner table. The chairs at the table are numbered from $1$ to $4n$. Two kids can't sit on the same chair. It is known that two kids who sit on chairs with numbers $a$ and $b$ ($a \neq b$) will indulge if: 
+
+1. $gcd(a, b) = 1$ or,
+2. $a$ divides $b$ or $b$ divides $a$.
+
+$gcd(a, b)$ — the maximum number $x$ such that $a$ is divisible by $x$ and $b$ is divisible by $x$.
+
+For example, if $n=3$ and the kids sit on chairs with numbers $2$, $3$, $4$, then they will indulge since $4$ is divided by $2$ and $gcd(2, 3) = 1$. If kids sit on chairs with numbers $4$, $6$, $10$, then they will not indulge.
+
+The teacher really doesn't want the mess at the table, so she wants to seat the kids so there are no $2$ of the kid that can indulge. More formally, she wants no pair of chairs $a$ and $b$ that the kids occupy to fulfill the condition above.
+
+Since the teacher is very busy with the entertainment of the kids, she asked you to solve this problem.
+
+### Input
+
+The first line contains one integer $t$ ($1 \leq t \leq 100$) — the number of test cases. Then $t$ test cases follow.
+
+Each test case consists of one line containing an integer $n$ ($1 \leq n \leq 100$) — the number of kids.
+
+### Output
+
+### Output
+
+ $t$ lines, which contain $n$ distinct integers from $1$ to $4n$ — the numbers of chairs that the kids should occupy in the corresponding test case. If there are multiple answers, print any of them. You can print $n$ numbers in any order.
+
+## Example
+
+### Input
+
+
+```text
+3
+2
+3
+4
+```
+### Output
+
+
+```text
+6 4
+4 6 10
+14 10 12 8
+```
+
+
+#### Tags 
+
+#800 #NOT OK #constructive_algorithms #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_681_(Div._2,_based_on_VK_Cup_2019-2020_-_Final).md)
+- [Tutorial](../blogs/Tutorial.md)

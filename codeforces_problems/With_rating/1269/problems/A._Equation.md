@@ -1,0 +1,62 @@
+<h1 style='text-align: center;'> A. Equation</h1>
+
+<h5 style='text-align: center;'>time limit per test: 3 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Let's call a positive integer composite if it has at least one divisor other than $1$ and itself. For example:
+
+* the following numbers are composite: $1024$, $4$, $6$, $9$;
+* the following numbers are not composite: $13$, $1$, $2$, $3$, $37$.
+
+You are given a positive integer $n$. Find two composite integers $a,b$ such that $a-b=n$.
+
+It can be proven that solution always exists.
+
+#### Input
+
+The input contains one integer $n$ ($1 \leq n \leq 10^7$): the given integer.
+
+#### Output
+
+Print two composite integers $a,b$ ($2 \leq a, b \leq 10^9, a-b=n$).
+
+It can be proven, that solution always exists.
+
+If there are several possible solutions, you can print any. 
+
+## Examples
+
+#### Input
+
+
+```text
+1
+```
+#### Output
+
+
+```text
+9 8
+```
+#### Input
+
+
+```text
+512
+```
+#### Output
+
+
+```text
+4608 4096
+```
+
+
+#### Tags 
+
+#800 #NOT OK #brute_force #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_609_(Div._2).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

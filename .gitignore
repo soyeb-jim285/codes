@@ -1,0 +1,8 @@
+*.out
+*.zip
+.vscode
+.cph
+JSESSIONID.py
+*.mpv
+*.txt
+*.mp4

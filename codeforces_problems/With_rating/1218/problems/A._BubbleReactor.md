@@ -1,0 +1,60 @@
+<h1 style='text-align: center;'> A. BubbleReactor</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1.5 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+You are in charge of the BubbleReactor. It consists of $N$ BubbleCores connected with $N$ lines of electrical wiring. Each electrical wiring connects two distinct BubbleCores. There are no BubbleCores connected with more than one line of electrical wiring.
+
+Your task is to start the BubbleReactor by starting each BubbleCore. In order for a BubbleCore to be started it needs to be receiving power from a directly connected BubbleCore which is already started. However, you can kick-start one BubbleCore manually without needing power. It is guaranteed that all BubbleCores can be started.
+
+Before the BubbleCore boot up procedure its potential is calculated as the number of BubbleCores it can power on (the number of inactive BubbleCores which are connected to it directly or with any number of inactive BubbleCores in between, itself included)
+
+Start the BubbleReactor so that the sum of all BubbleCores' potentials is maximum.
+
+### Input
+
+First line contains one integer $N (3 \leq N \leq 15.000)$, the number of BubbleCores.
+
+The following N lines contain two integers $U, V (0 \leq U \neq V < N)$ denoting that there exists electrical wiring between BubbleCores $U$ and $V$.
+
+### Output
+
+Single integer, the maximum sum of all BubbleCores' potentials.
+
+## Example
+
+### Input
+
+
+```text
+10
+0 1
+0 3
+0 4
+0 9
+1 2
+2 3
+2 7
+4 5
+4 6
+7 8
+```
+### Output
+
+
+```text
+51
+```
+## Note
+
+If we start by kickstarting BubbleCup 8 and then turning on cores 7, 2, 1, 3, 0, 9, 4, 5, 6 in that order we get potentials 10 + 9 + 8 + 7 + 6 + 5 + 1 + 3 + 1 + 1 = 51
+
+
+
+#### Tags 
+
+#2800 #NOT OK #dp #graphs 
+
+## Blogs
+- [All Contest Problems](../Bubble_Cup_12_-_Finals_[Online_Mirror,_unrated,_Div._1].md)
+- [Announcement (en)](../blogs/Announcement_(en).md)

@@ -1,0 +1,81 @@
+<h1 style='text-align: center;'> D. Recover it!</h1>
+
+<h5 style='text-align: center;'>time limit per test: 4 seconds</h5>
+<h5 style='text-align: center;'>memory limit per test: 256 megabytes</h5>
+
+Authors guessed an array $a$ consisting of $n$ integers; each integer is not less than $2$ and not greater than $2 \cdot 10^5$. You don't know the array $a$, but you know the array $b$ which is formed from it with the following sequence of operations:
+
+1. Firstly, let the array $b$ be equal to the array $a$;
+2. Secondly, for each $i$ from $1$ to $n$:
+	* if $a_i$ is a prime number, then one integer $p_{a_i}$ is appended to array $b$, where $p$ is an infinite sequence of prime numbers ($2, 3, 5, \dots$);
+	* otherwise (if $a_i$ is not a prime number), the greatest divisor of $a_i$ which is not equal to $a_i$ is appended to $b$;
+3. Then the obtained array of length $2n$ is shuffled and given to you in the input.
+
+Here $p_{a_i}$ means the $a_i$-th prime number. The first prime $p_1 = 2$, the second one is $p_2 = 3$, and so on.
+
+Your task is to recover any suitable array $a$ that forms the given array $b$. It is guaranteed that the answer exists (so the array $b$ is obtained from some suitable array $a$). If there are multiple answers, you can print any.
+
+##### Input
+
+The first line of the input contains one integer $n$ ($1 \le n \le 2 \cdot 10^5$) — the number of elements in $a$.
+
+The second line of the input contains $2n$ integers $b_1, b_2, \dots, b_{2n}$ ($2 \le b_i \le 2750131$), where $b_i$ is the $i$-th element of $b$. $2750131$ is the $199999$-th prime number.
+
+##### Output
+
+In the only line of the output print $n$ integers $a_1, a_2, \dots, a_n$ ($2 \le a_i \le 2 \cdot 10^5$) in any order — the array $a$ from which the array $b$ can be obtained using the sequence of moves given in the problem statement. If there are multiple answers, you can print any.
+
+## Examples
+
+##### Input
+
+
+```text
+3
+3 5 2 3 2 4
+```
+##### Output
+
+
+```text
+3 4 2 
+```
+##### Input
+
+```text
+
+1
+2750131 199999
+
+```
+##### Output
+
+
+```text
+199999 
+```
+##### Input
+
+```text
+
+1
+3 6
+
+```
+##### Output
+
+
+```text
+
+6 
+```
+
+
+#### Tags 
+
+#1800 #NOT OK #dfs_and_similar #graphs #greedy #number_theory #sortings 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_565_(Div._3).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial](../blogs/Tutorial.md)

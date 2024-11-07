@@ -1,0 +1,56 @@
+<h1 style='text-align: center;'> A. Binary Decimal</h1>
+
+<h5 style='text-align: center;'>time limit per test: 1 second</h5>
+<h5 style='text-align: center;'>memory limit per test: 512 megabytes</h5>
+
+Let's call a number a binary decimal if it's a positive integer and all digits in its decimal notation are either $0$ or $1$. For example, $1\,010\,111$ is a binary decimal, while $10\,201$ and $787\,788$ are not.
+
+Given a number $n$, you are asked to represent $n$ as a sum of some (not necessarily distinct) binary decimals. Compute the smallest number of binary decimals required for that.
+
+### Input
+
+The first line contains a single integer $t$ ($1 \le t \le 1000$), denoting the number of test cases.
+
+The only line of each test case contains a single integer $n$ ($1 \le n \le 10^9$), denoting the number to be represented.
+
+### Output
+
+For each test case, output the smallest number of binary decimals required to represent $n$ as a sum.
+
+## Example
+
+### Input
+
+
+```text
+3
+121
+5
+1000000000
+```
+### Output
+
+
+```text
+2
+5
+1
+```
+## Note
+
+In the first test case, $121$ can be represented as $121 = 110 + 11$ or $121 = 111 + 10$.
+
+In the second test case, $5$ can be represented as $5 = 1 + 1 + 1 + 1 + 1$.
+
+In the third test case, $1\,000\,000\,000$ is a binary decimal itself, thus the answer is $1$.
+
+
+
+#### Tags 
+
+#800 #NOT OK #greedy #math 
+
+## Blogs
+- [All Contest Problems](../Codeforces_Round_733_(Div._1_+_Div._2,_based_on_VK_Cup_2021_-_Elimination_(Engine)).md)
+- [Announcement](../blogs/Announcement.md)
+- [Tutorial (en)](../blogs/Tutorial_(en).md)

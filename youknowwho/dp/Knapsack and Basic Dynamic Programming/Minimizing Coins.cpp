@@ -4,17 +4,16 @@ typedef long long ll;
 typedef long double ld;
 // mt19937 rnd(239);
 mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod = 1e9 + 7;
-ll fn(ll val, vector<ll> &vc, vector<ll> &dp) {
-  if (val == 0)
-    return 1;
-  if (val < 0)
-    return 0;
-  if (dp[val] != -1)
+vector<ll> dp(1e6 + 1, 1e18);
+ll fn(ll val, vector<ll> &vc) {
+  if (dp[val] != 1e18)
     return dp[val];
-  ll ans = 0;
+  if (val == 0)
+    return 0;
+  ll ans = 1e18;
   for (int i = 0; i < vc.size(); i++) {
-    ans = (ans + fn(val - vc[i], vc, dp)) % mod;
+    if (val - vc[i] >= 0)
+      ans = min(ans, fn(val - vc[i], vc) + 1);
   }
   return dp[val] = ans;
 }
@@ -25,16 +24,16 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> vc[i];
   }
-  vector<ll> dp(x + 1, 0);
-  dp[0] = 1;
+  dp[0] = 0;
   for (int i = 0; i <= x; i++) {
     for (int j = 0; j < n; j++) {
       if (i - vc[j] >= 0) {
-        dp[i] = (dp[i] + dp[i - vc[j]]) % mod;
+        dp[i] = min(dp[i], dp[i - vc[j]] + 1);
       }
     }
   }
-  cout << dp[x] << endl;
+  cout << (dp[x] == 1e18 ? -1 : dp[x]) << endl;
+  // cout << (fn(x, vc) == 1e18 ? -1 : fn(x, vc)) << endl;
 }
 int main() {
   ios_base::sync_with_stdio(false);

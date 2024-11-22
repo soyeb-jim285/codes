@@ -1,25 +1,26 @@
 #include <bits/stdc++.h>
-#include <utility>
-#include <vector>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
 // mt19937 rnd(239);
 mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
 void solve() {
-  ll n, w;
-  cin >> n >> w;
-  vector<pair<ll, ll>> vc(n);
+  ll n, k;
+  cin >> n >> k;
+  vector<ll> vc(n);
   for (int i = 0; i < n; i++) {
-    cin >> vc[i].first >> vc[i].second;
+    cin >> vc[i];
   }
-  vector<ll> dp(w + 1);
+  vector<ll> dp(n, 1e18);
+  dp[0] = 0;
   for (int i = 0; i < n; i++) {
-    for (int j = w; j >= vc[i].first; j--) {
-      dp[j] = max(dp[j], dp[j - vc[i].first] + vc[i].second);
+    for (int j = 1; j <= k; j++) {
+      if (i + j < n) {
+        dp[i + j] = min(dp[i + j], dp[i] + abs(vc[i] - vc[i + j]));
+      }
     }
   }
-  cout << dp[w] << "\n";
+  cout << dp[n - 1] << endl;
 }
 int main() {
   ios_base::sync_with_stdio(false);

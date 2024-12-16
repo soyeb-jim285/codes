@@ -1,19 +1,20 @@
 #include <bits/stdc++.h>
-#include <cmath>
+#include <cassert>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-// mt19937 rnd(239);
-mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
-const int LIM = 8e6;
 #define rep(i, a, b) for (int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
 typedef pair<int, int> pii;
 typedef vector<int> vi;
+// mt19937 rnd(239);
+mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+ll const mod = 1e7 + 7;
+const int LIM = 1e6 + 1;
 bitset<LIM> isPrime;
 vector<int> eratosthenes() {
-  const int S = 3e3, R = LIM / 2;
+  const int S = 1e3, R = LIM / 2;
   vi pr = {2}, sieve(S + 1);
   pr.reserve(int(LIM / log(LIM) * 1.1));
   vector<pii> cp;
@@ -35,10 +36,27 @@ vector<int> eratosthenes() {
   return pr;
 }
 void solve() {
-  int n;
+  ll n;
+  vector<int> primes = eratosthenes();
   cin >> n;
-  vector<int> pr = eratosthenes();
-  cout << pr[n - 1] << '\n';
+  while (n) {
+    ll ans = 1;
+    for (int i = 0; i < primes.size() && primes[i] <= n; i++) {
+      ll cnt = 0;
+      ll p = primes[i];
+      while (n / p) {
+        cnt = (cnt + n / p) % mod;
+        p = p * primes[i];
+      }
+      ll k = (cnt + 1) * (cnt + 2) / 2LL;
+      k = k % mod;
+      ans = (ans * k) % mod;
+    }
+    cout << ans << '\n';
+    cin >> n;
+    if (n == 0)
+      break;
+  }
 }
 int main() {
   ios_base::sync_with_stdio(false);

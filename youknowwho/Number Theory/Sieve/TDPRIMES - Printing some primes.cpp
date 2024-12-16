@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
-#include <cmath>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
 // mt19937 rnd(239);
 mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
-const int LIM = 8e6;
+const int LIM = 1e8;
 #define rep(i, a, b) for (int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
+typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 bitset<LIM> isPrime;
 vector<int> eratosthenes() {
-  const int S = 3e3, R = LIM / 2;
+  const int S = 1e4, R = LIM / 2;
   vi pr = {2}, sieve(S + 1);
   pr.reserve(int(LIM / log(LIM) * 1.1));
   vector<pii> cp;
@@ -34,11 +34,14 @@ vector<int> eratosthenes() {
     isPrime[i] = 1;
   return pr;
 }
+
 void solve() {
-  int n;
-  cin >> n;
   vector<int> pr = eratosthenes();
-  cout << pr[n - 1] << '\n';
+  ll ind = 0;
+  while (pr[ind] < 1e8 && ind < pr.size()) {
+    cout << pr[ind] << '\n';
+    ind += 100;
+  }
 }
 int main() {
   ios_base::sync_with_stdio(false);

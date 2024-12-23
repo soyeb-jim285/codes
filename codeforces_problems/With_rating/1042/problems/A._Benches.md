@@ -25,88 +25,87 @@ Print the minimum possible $k$ and the maximum possible $k$, where $k$ is the ma
 
 ###### Input
 
-
 ```text
-4  
-6  
-1  
-1  
-1  
-1  
+4
+6
+1
+1
+1
+1
 
 ```
+
 ###### Output
 
-
 ```text
-3 7  
+3 7
 
 ```
+
 ###### Input
 
-
 ```text
-1  
-10  
-5  
+1
+10
+5
 
 ```
+
 ###### Output
 
-
 ```text
-15 15  
+15 15
 
 ```
+
 ###### Input
 
-
 ```text
-3  
-6  
-1  
-6  
-5  
+3
+6
+1
+6
+5
 
 ```
+
 ###### Output
 
-
 ```text
-6 12  
+6 12
 
 ```
+
 ###### Input
 
-
 ```text
-3  
-7  
-1  
-6  
-5  
+3
+7
+1
+6
+5
 
 ```
+
 ###### Output
 
-
 ```text
-7 13  
+7 13
 
 ```
+
 ## Note
 
 In the first example, each of four benches is occupied by a single person. The minimum $k$ is $3$. For example, it is possible to achieve if two newcomers occupy the first bench, one occupies the second bench, one occupies the third bench, and two remaining — the fourth bench. The maximum $k$ is $7$. That requires all six new people to occupy the same bench.
 
 The second example has its minimum $k$ equal to $15$ and maximum $k$ equal to $15$, as there is just a single bench in the park and all $10$ people will occupy it.
 
+#### Tags
 
-
-#### Tags 
-
-#1100 #NOT OK #binary_search #implementation 
+# 1100 #NOT OK #binary_search #implementation
 
 ## Blogs
-- [All Contest Problems](../Codeforces_Round_510_(Div._2).md)
-- [Announcement (ru)](../blogs/Announcement_(ru).md)
+
+- [All Contest Problems](<../Codeforces_Round_510_(Div._2).md>)
+- [Announcement (ru)](<../blogs/Announcement_(ru).md>)
 - [Tutorial](../blogs/Tutorial.md)

@@ -7,7 +7,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-ll const N = 1e6 + 5;
+ll const N = 1e7 + 5;
 vector<ll> spf(N), mobius(N);
 void init() {
   for (ll i = 2; i < N; i++) {
